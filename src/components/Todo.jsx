@@ -1,17 +1,15 @@
-import React, { useState } from 'react'
+import React from "react";
 
-const Todo = () => {
-
-    const [tasks, setTasks] = useState(math.random())
-
-
+const Todo = ({ el, del, comp }) => {
   return (
     <div>
-        <h1></h1>
-        <button>Delete</button>
-        <button>Complete</button>
+      <h1 className={el.isDone ? "complete" : ""}>{el.action}</h1>
+      <button onClick={() => comp(el.id)}>
+        {el.isDone ? "undo" : "complete"}
+      </button>
+      <button onClick={() => del(el.id)}>delete</button>
     </div>
-  )
-}
+  );
+};
 
-export default Todo
+export default Todo;
